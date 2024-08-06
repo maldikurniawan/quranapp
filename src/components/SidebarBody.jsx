@@ -8,15 +8,15 @@ export default function SidebarBody() {
                 <ul>
                     <li>
                         <AiOutlineCoffee />
-                        <a href="/#">Trakteer coffe</a>
+                        <a href="/quranapp/">Trakteer coffe</a>
                     </li>
                     <li>
                         <AiOutlineBug />
-                        <a href="/#"> Report bug</a>
+                        <a href="/quranapp/"> Report bug</a>
                     </li>
                     <li>
                         <AiOutlineFolderOpen />
-                        <a href="/#">This Repository</a>
+                        <a href="/quranapp/">This Repository</a>
                     </li>
                 </ul>
             </div>

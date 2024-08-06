@@ -7,7 +7,7 @@ import ListSurahHome from '../../components/Home/ListSurahHome'
 import InputSearchHome from '../../components/Home/InputSearchHome'
 import { AppContext } from '../../context/AppContext'
 
-import './Home.css'
+// import './Home.css'
 
 export default function Home() {
     const [surah, setSurah] = useState([])

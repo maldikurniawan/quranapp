@@ -25,7 +25,7 @@ export default function ListSurahHome() {
                                     <span>{s.tempat_turun} - {s.jumlah_ayat} Ayat</span>
                                 </div>
                             </div>
-                            <div className="name-surah-latin">
+                            <div className="name-surah-latin text-2xl font-bold">
                                 <h2>{s.nama}</h2>
                             </div>
                         </div>

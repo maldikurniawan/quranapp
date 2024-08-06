@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import 'react-h5-audio-player/lib/styles.css'
 
-import './DetailSurah.css'
+// import './DetailSurah.css'
 import HeaderSurah from "../../components/Surah/HeaderSurah";
 import BannerSurah from "../../components/Surah/BannerSurah";
 import Loading from "../../components/Loading";

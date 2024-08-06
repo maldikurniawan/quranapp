@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import './SplashScreen.css'
+// import './SplashScreen.css'
 
 export default function SplashScreen() {
     const navigate = useNavigate()

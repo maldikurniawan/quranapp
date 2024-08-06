@@ -1,7 +1,18 @@
-export default function App() {
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import SplashScreen from './pages/SplashScreen/SplashScreen';
+import DetailSurah from './pages/Surah/DetailSurah';
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className='relative mx-auto max-w-[450px] bg-[#fff] p-[20px]'>
+      <Routes>
+        <Route path="/" element={<SplashScreen />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/surah/:nomor" element={<DetailSurah />} />
+      </Routes>
+    </div>
+  );
 }
+
+export default App;

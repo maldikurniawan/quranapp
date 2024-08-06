@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function SplashScreen() {
     const navigate = useNavigate()
     const goToHome = () => {
-        navigate('/home')
+        navigate('/quranapp/home')
     }
     
     document.title = 'Quran App'
@@ -14,7 +14,7 @@ export default function SplashScreen() {
             <h2 className="splash-title text-center">Quran App</h2>
             <p className="splash-description text-center">Learn Quran and Recite once everyday</p>
             <div className="banner-splash">
-                <img src="/quran-splash.svg" alt="Quran Splash" className="image-splash" />
+                <img src="./quran-splash.svg" alt="Quran Splash" className="mx-auto w-[250px]" />
                 <button className="splash-button" onClick={goToHome}>Get Started</button>
             </div>
         </div>

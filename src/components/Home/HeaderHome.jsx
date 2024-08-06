@@ -15,14 +15,14 @@ export default function HeaderHome() {
 
     return (
         <div className="topBar">
-            <span onClick={openMenu}>
-                <img src="/menu-2-line.svg" alt="" />
+            <span onClick={openMenu} className="hidden max-[460px]:block">
+                <img src="./menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">
-                <Link to="/">Quran App</Link>
+                <Link to="/quranapp/">Quran App</Link>
             </div>
             <span onClick={openSeachBar}>
-                <img src="/search-line.svg" alt="Search" />
+                <img src="./search-line.svg" alt="Search" />
             </span>
         </div>
     )

@@ -1,39 +1,54 @@
-import { useEffect, useRef, useState } from 'react'
-import Sidebar from '../../components/Sidebar'
-import HeaderHome from '../../components/Home/HeaderHome'
-import BannerHome from '../../components/Home/BannerHome'
-import Loading from '../../components/Loading'
-import ListSurahHome from '../../components/Home/ListSurahHome'
-import InputSearchHome from '../../components/Home/InputSearchHome'
-import { AppContext } from '../../context/AppContext'
-
-// import './Home.css'
+import { useEffect, useRef, useState } from 'react';
+import Sidebar from '../../components/Sidebar';
+import HeaderHome from '../../components/Home/HeaderHome';
+import BannerHome from '../../components/Home/BannerHome';
+import Loading from '../../components/Loading';
+import ListSurahHome from '../../components/Home/ListSurahHome';
+import InputSearchHome from '../../components/Home/InputSearchHome';
+import { AppContext } from '../../context/AppContext';
+import { FaArrowCircleUp } from 'react-icons/fa';
 
 export default function Home() {
-    const [surah, setSurah] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [search, setSearch] = useState('')
-    const [lastRead, setLastRead] = useState({})
+    const [surah, setSurah] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState('');
+    const [lastRead, setLastRead] = useState({});
+    const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-    const sidebar = useRef('')
-    const searchInput = useRef('')
+    const sidebar = useRef('');
+    const searchInput = useRef('');
 
-    document.title = 'Quran App'
+    document.title = 'Quran App';
 
     useEffect(() => {
         async function getAllSurah() {
             const request = await fetch('https://equran.id/api/surat');
             const response = await request.json();
 
-            setSurah(response)
-            setLoading(false)
+            setSurah(response);
+            setLoading(false);
         }
 
-        getAllSurah()
+        getAllSurah();
 
         const lastSurah = JSON.parse(localStorage.getItem('lastRead'));
-        lastSurah ? setLastRead(lastSurah) : setLastRead({})
+        lastSurah ? setLastRead(lastSurah) : setLastRead({});
+
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollToTop(true);
+            } else {
+                setShowScrollToTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const data = {
         sidebar,
@@ -42,7 +57,7 @@ export default function Home() {
         search,
         setSearch,
         surah
-    }
+    };
 
     return (
         <AppContext.Provider value={data}>
@@ -51,6 +66,22 @@ export default function Home() {
             <InputSearchHome />
             <BannerHome />
             {loading ? <Loading /> : <ListSurahHome />}
+            {showScrollToTop && (
+                <button 
+                    onClick={scrollToTop} 
+                    className='opacity-70'
+                    style={{
+                        position: 'fixed',
+                        bottom: '20px',
+                        right: '20px',
+                        color: '#672CBC',
+                        border: 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }}>
+                    <FaArrowCircleUp className='w-10 h-10'/>
+                </button>
+            )}
         </AppContext.Provider>
-    )
+    );
 }

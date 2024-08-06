@@ -7,9 +7,9 @@ function App() {
   return (
     <div className='relative mx-auto max-w-[450px] bg-[#fff] p-[20px]'>
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/surah/:nomor" element={<DetailSurah />} />
+        <Route path="/quranapp/" element={<SplashScreen />} />
+        <Route path="/quranapp/home" element={<Home />} />
+        <Route path="/quranapp/surah/:nomor" element={<DetailSurah />} />
       </Routes>
     </div>
   );

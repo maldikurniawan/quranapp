@@ -8,7 +8,7 @@ export default function BannerHome() {
         <div className="banner">
             <div className="left-info">
                 <div className="container-last-read">
-                    <img src="/read-logo.svg" alt="Icon Read" />
+                    <img src="./read-logo.svg" alt="Icon Read" />
                     <h3 className="last-read">Last Read</h3>
                 </div>
                 <div className="container-surah">
@@ -23,7 +23,7 @@ export default function BannerHome() {
                 </div>
             </div>
             <div className="right-info">
-                <img src="/quran.svg" alt="Quran" />
+                <img src="./quran.svg" alt="Quran" />
             </div>
         </div>
     )

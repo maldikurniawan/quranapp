@@ -1,4 +1,5 @@
 import { AiOutlineBug, AiOutlineCoffee, AiOutlineFolderOpen, AiOutlineGithub, AiOutlineInstagram, AiOutlineWhatsApp } from "react-icons/ai"
+import { FaRegUserCircle } from "react-icons/fa"
 
 export default function SidebarBody() {
     return (
@@ -22,11 +23,14 @@ export default function SidebarBody() {
             <div className="sidebar-footer">
                 <h3 className="footer-title">Contact me</h3>
                 <div className="icons-social">
-                    <a href="https://github.com/ahmdsk" target="_blank" rel="noopener noreferrer"><AiOutlineGithub /></a>
-                    <a href="https://wa.me/62895605997185" target="_blank" rel="noopener noreferrer"><AiOutlineWhatsApp /></a>
-                    <a href="https://instagram.com/ahmdsk._" target="_blank" rel="noopener noreferrer"><AiOutlineInstagram /></a>
+                    <a href="https://github.com/maldikurniawan/quranapp" target="_blank"><AiOutlineGithub /></a>
+                    <a href="https://api.whatsapp.com/send?phone=62895610107247" target="_blank"><AiOutlineWhatsApp /></a>
+                    <a href="https://www.instagram.com/aldiknn_/" target="_blank"><AiOutlineInstagram /></a>
+                    <a href="https://www.instagram.com/aldiknn_/" target="_blank"><FaRegUserCircle /></a>
                 </div>
-                <h4 className="copyright">Developed by <b>Ahmad Shaleh</b></h4>
+                <h4>Inspired by
+                    <a href="https://github.com/ahmdsk/QuranWeb-React" target="_blank"> Ahmad Shaleh</a>
+                </h4>
             </div>
         </div>
     )

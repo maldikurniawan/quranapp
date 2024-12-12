@@ -18,7 +18,7 @@ export default function BannerHome() {
                             <h5 className="surah-number">Surah No: {apps.lastRead.nomor}</h5>
                         </>
                     ) : (
-                        <h3 className="surah-name">nothing has been <br /> read yet.</h3>
+                        <h3 className="surah-name">Nothing Has Been <br /> Read Yet.</h3>
                     )}
                 </div>
             </div>

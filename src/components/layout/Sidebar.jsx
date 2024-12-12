@@ -41,12 +41,13 @@ export default function Sidebar() {
     }, []);
 
     return (
-        <div className="sidebar bg-[#16a34a] z-20" ref={apps.sidebar}>
-            <div ref={sidebarRef}>
+        <div className="sidebar bg-[#16a34a] flex flex-col h-full" ref={apps.sidebar}>
+            <div ref={sidebarRef} className="flex flex-col h-full">
                 <SidebarTop sidebar={apps.sidebar} />
-                <SidebarBody />
+                <div className="flex-grow">
+                    <SidebarBody />
+                </div>
             </div>
         </div>
-
     );
 }

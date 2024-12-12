@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import SplashScreen from './pages/SplashScreen/SplashScreen';
-import DetailSurah from './pages/Surah/DetailSurah';
+import Home from './pages/Home';
+import DetailSurah from './pages/DetailSurah';
 
 function App() {
   return (

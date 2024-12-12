@@ -8,11 +8,11 @@ export default function SidebarBody() {
                 <ul>
                     <li>
                         <AiOutlineCoffee />
-                        <a href="/quranapp/">Trakteer coffe</a>
+                        <a href="/quranapp/">Trakteer Coffe</a>
                     </li>
                     <li>
                         <AiOutlineBug />
-                        <a href="/quranapp/"> Report bug</a>
+                        <a href="/quranapp/"> Report Bug</a>
                     </li>
                     <li>
                         <AiOutlineFolderOpen />
@@ -26,7 +26,7 @@ export default function SidebarBody() {
                     <a href="https://github.com/maldikurniawan" target="_blank"><AiOutlineGithub /></a>
                     <a href="https://api.whatsapp.com/send?phone=62895610107247" target="_blank"><AiOutlineWhatsApp /></a>
                     <a href="https://www.instagram.com/aldiknn_/" target="_blank"><AiOutlineInstagram /></a>
-                    <a href="https://maldikurniawan.github.io/random_app/" target="_blank"><FaRegUserCircle /></a>
+                    <a href="https://maldikurniawan.netlify.app/" target="_blank"><FaRegUserCircle /></a>
                 </div>
                 <h4>Inspired by
                     <a href="https://github.com/ahmdsk/QuranWeb-React" target="_blank"> Ahmad Shaleh</a>

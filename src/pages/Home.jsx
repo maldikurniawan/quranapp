@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import Sidebar from '../../components/Sidebar';
-import HeaderHome from '../../components/Home/HeaderHome';
-import BannerHome from '../../components/Home/BannerHome';
-import Loading from '../../components/Loading';
-import ListSurahHome from '../../components/Home/ListSurahHome';
-import InputSearchHome from '../../components/Home/InputSearchHome';
-import { AppContext } from '../../context/AppContext';
+import {
+    Sidebar,
+    HeaderHome,
+    BannerHome,
+    Loading,
+    ListSurahHome,
+    InputSearchHome
+} from '@/components';
+import { AppContext } from '@/context/AppContext';
 import { FaArrowCircleUp } from 'react-icons/fa';
 
 export default function Home() {
@@ -67,8 +69,8 @@ export default function Home() {
             <BannerHome />
             {loading ? <Loading /> : <ListSurahHome />}
             {showScrollToTop && (
-                <button 
-                    onClick={scrollToTop} 
+                <button
+                    onClick={scrollToTop}
                     className='opacity-70'
                     style={{
                         position: 'fixed',
@@ -79,7 +81,7 @@ export default function Home() {
                         borderRadius: '5px',
                         cursor: 'pointer'
                     }}>
-                    <FaArrowCircleUp className='w-10 h-10'/>
+                    <FaArrowCircleUp className='w-10 h-10' />
                 </button>
             )}
         </AppContext.Provider>

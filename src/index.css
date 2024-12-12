@@ -4,418 +4,418 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #d8dee8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d8dee8;
 }
 
 .loading {
-    width: 100%;
-    display: inline-block;
-    padding: 10px;
-    color: #240F4F;
-    text-align: center;
+  width: 100%;
+  display: inline-block;
+  padding: 10px;
+  color: #240f4f;
+  text-align: center;
 }
 
 .topBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
 }
 
 .title-home {
-    color: #672CBC;
-    font-weight: bold;
-    font-size: 20px;
+  color: #672cbc;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .banner {
-    background-image: linear-gradient(to bottom right, #df98fa, #9055ff);
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    padding: 10px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    height: 150px;
+  background-image: linear-gradient(to bottom right, #df98fa, #9055ff);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  height: 150px;
 }
 
 .left-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px;
 }
 
 .container-last-read {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .last-read {
-    font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .surah-name {
-    font-size: 18px;
-    font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .surah-number {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .right-info {
-    position: absolute;
-    right: -30px;
-    bottom: -30px;
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
 }
 
 .list-surah {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .surah,
 .surah-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .surah {
-    border-bottom: 1px solid #BBC4CE;
-    cursor: pointer;
+  border-bottom: 1px solid #bbc4ce;
+  cursor: pointer;
 }
 
 .surah-title {
-    padding: 15px 0;
-    gap: 15px;
+  padding: 15px 0;
+  gap: 15px;
 }
 
 .no-surah {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .no-surah span {
-    background-image: url("./assets/muslim.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: inline-flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: #240F4F;
-    font-weight: 600;
+  background-image: url('./assets/muslim.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #240f4f;
+  font-weight: 600;
 }
 
 .surah-location h2 {
-    color: #240F4F;
-    font-size: 18px;
-    font-weight: 500;
+  color: #240f4f;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .surah-location span {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-size: 600;
-    color: #8789A3;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-size: 600;
+  color: #8789a3;
 }
 
 .name-surah-latin h2 {
-    color: #672CBC;
+  color: #672cbc;
 }
 
 /* Search Bar */
 .toggle-search {
-    display: inline-block !important;
+  display: inline-block !important;
 }
 
 .seacrhBar {
-    padding: 5px 0 20px 0;
-    width: 100%;
-    display: none;
+  padding: 5px 0 20px 0;
+  width: 100%;
+  display: none;
 }
 
 .seacrhBar input {
-    width: 100%;
-    border: 2px solid #c3cbd4;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: #240F4F;
+  width: 100%;
+  border: 2px solid #c3cbd4;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #240f4f;
 }
 
 .seacrhBar input:focus {
-    outline: none;
-    border-color: #a4abb2;
+  outline: none;
+  border-color: #a4abb2;
 }
 
 /* Sidebar */
 .sidebar {
-    background-color: #672CBC;
-    color: #fff;
-    padding: 15px 20px;
-    border-radius: 0 15px 15px 0;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 75%;
-    display: none;
+  background-color: #672cbc;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 0 15px 15px 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  display: none;
 }
 
 .sidebar .sidebar-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sidebar .sidebar-top svg {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .sidebar .sidebar-body {
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .sidebar .sidebar-body .sidebar-body-menu ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar .sidebar-body .sidebar-body-menu ul li {
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar .sidebar-body .sidebar-body-menu ul li:hover {
-    padding-left: 15px;
-    transition: .2s ease-in;
+  padding-left: 15px;
+  transition: 0.2s ease-in;
 }
 
 .sidebar .sidebar-body .sidebar-body-menu ul li svg {
-    font-size: 1.5em;
-    margin-right: 10px;
+  font-size: 1.5em;
+  margin-right: 10px;
 }
 
 .sidebar .sidebar-body .sidebar-body-menu ul li a {
-    color: #fff;
+  color: #fff;
 }
 
 .sidebar-footer {
-    text-align: center;
-    padding: 10px 0;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .sidebar-footer .footer-title {
-    font-size: 1em;
-    font-weight: 500;
+  font-size: 1em;
+  font-weight: 500;
 }
 
 .sidebar-footer .icons-social {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-size: 2em;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2em;
 }
 
 .sidebar-footer .icons-social a {
-    color: #fff;
+  color: #fff;
 }
 
 .sidebar-footer .icons-social a:hover {
-    font-size: 1.3em;
-    transition: .3s all;
+  font-size: 1.3em;
+  transition: 0.3s all;
 }
 
 .sidebar-footer .copyright {
-    font-weight: 500;
-    font-size: .8em;
+  font-weight: 500;
+  font-size: 0.8em;
 }
 
 .splash {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 @media (max-width: 450px) {
-    .splash {
-        height: 95vh;
-    }
+  .splash {
+    height: 95vh;
   }
+}
 
 .splash-title {
-    color: #672CBC;
-    font-weight: bold;
-    padding-top: 10%;
-    font-size: 28px;
+  color: #672cbc;
+  font-weight: bold;
+  padding-top: 10%;
+  font-size: 28px;
 }
 
 .splash-description {
-    color: #8789A3;
-    font-size: 18px;
-    width: 60%;
-    padding: 15px 0 20px 0;
+  color: #8789a3;
+  font-size: 18px;
+  width: 60%;
+  padding: 15px 0 20px 0;
 }
 
 .splash-button {
-    background-color: #F9B091;
-    border: none;
-    padding: 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    color: #fff;
-    font-size: 1.2em;
-    position: relative;
-    bottom: 40px;
+  background-color: #f9b091;
+  border: none;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.2em;
+  position: relative;
+  bottom: 40px;
 }
 
 .title-home {
-    padding: 5px;
+  padding: 5px;
 }
 
 .title-home a {
-    padding-right: 25px;
+  padding-right: 25px;
 }
 
 .banner-surah {
-    background-image: linear-gradient(to bottom right, #df98fa, #9055ff);
-    color: #fff;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding: 30px 20px;
-    box-shadow: 0px 18px 11px -8px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to bottom right, #df98fa, #9055ff);
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 20px;
+  box-shadow: 0px 18px 11px -8px rgba(0, 0, 0, 0.1);
 }
 
 .surah-name-banner {
-    font-weight: 400;
-    font-size: 24px;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .quran-surah {
-    width: 300px;
-    opacity: .2;
-    position: absolute;
-    right: -40px;
-    bottom: -50px;
+  width: 300px;
+  opacity: 0.2;
+  position: absolute;
+  right: -40px;
+  bottom: -50px;
 }
 
 .surah-arti {
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .diver {
-    display: inline-block;
-    height: 1px;
-    width: 65%;
-    background-color: #fff;
-    opacity: 35%;
+  display: inline-block;
+  height: 1px;
+  width: 65%;
+  background-color: #fff;
+  opacity: 35%;
 }
 
 .surah-ayat-locate {
-    padding: 10px 0 20px 0;
-    text-transform: uppercase;
-    font-size: 14px;
+  padding: 10px 0 20px 0;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .list-ayat {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .ayat {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .number-page {
-    background-color: rgb(18, 25, 49, 0.05);
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
+  background-color: rgb(18, 25, 49, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
 }
 
 .number-page span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #672CBC;
-    width: 25px;
-    height: 25px;
-    padding: 10px;
-    border-radius: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #672cbc;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border-radius: 100%;
 }
 
 .ayat-latin {
-    padding: 10px;
-    text-align: right;
+  padding: 10px;
+  text-align: right;
 }
 
 .ayat-latin h3 {
-    font-family: 'Amiri', serif;
-    color: #672CBC;
-    font-size: 18px;
-    padding: 15px 0;
+  font-family: 'Amiri', serif;
+  color: #672cbc;
+  font-size: 18px;
+  padding: 15px 0;
 }
 
 .ayat-tr,
 .ayat-idn {
-    padding: 0 15px;
-    color: #240F4F;
+  padding: 0 15px;
+  color: #240f4f;
 }
 
 .ayat-tr h3 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .ayat-idn {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .audio-player-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 35px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px;
 }
 
 .audio-player {
-    border: 1px solid #f2f3f4;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 18px 11px -8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f2f3f4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 18px 11px -8px rgba(0, 0, 0, 0.1);
 }
 
 .rhap_button-clear {
-    overflow: visible;
+  overflow: visible;
 }

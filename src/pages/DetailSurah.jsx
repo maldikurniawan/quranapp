@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom"
 import 'react-h5-audio-player/lib/styles.css'
 
 // import './DetailSurah.css'
-import HeaderSurah from "../../components/Surah/HeaderSurah";
-import BannerSurah from "../../components/Surah/BannerSurah";
-import Loading from "../../components/Loading";
-import ListAyat from "../../components/Surah/ListAyat";
-import MurotalSurah from "../../components/Surah/MurotalSurah";
-
+import {
+    HeaderSurah,
+    BannerSurah,
+    Loading,
+    ListAyat,
+    MurotalSurah
+} from "@/components";
 export default function DetailSurah() {
     const params = useParams()
 

@@ -10,7 +10,8 @@ export default function HeaderHome() {
     }
 
     const openMenu = () => {
-        apps.sidebar.current.classList.add('toggle-search')
+        apps.sidebar.current.classList.add('toggle-search');
+        document.body.style.overflow = 'hidden';
     }
 
     return (

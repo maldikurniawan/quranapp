@@ -1,10 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "@/context/AppContext";
 import SidebarBody from "./SidebarBody";
 import SidebarTop from "./SidebarTop";
+import { useOnClickOutside } from "..//hooks/useOnClickOutside"; // Import the hook
 
 export default function Sidebar() {
     const apps = useContext(AppContext);
+    const sidebarRef = useRef(null);
+
+    // Define closeMenu function before using it in the hook
+    const closeMenu = () => {
+        if (apps.sidebar.current) {
+            apps.sidebar.current.classList.remove("toggle-search");
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Call the useOnClickOutside hook and close the menu when clicking outside
+    useOnClickOutside(sidebarRef, closeMenu);
 
     useEffect(() => {
         const handleResize = () => {
@@ -27,16 +40,13 @@ export default function Sidebar() {
         };
     }, []);
 
-    const closeMenu = () => {
-        if (apps.sidebar.current) {
-            apps.sidebar.current.classList.remove("toggle-search");
-        }
-    };
-
     return (
-        <div className="sidebar" ref={apps.sidebar}>
-            <SidebarTop sidebar={apps.sidebar} />
-            <SidebarBody />
+        <div className="sidebar bg-[#16a34a] z-20" ref={apps.sidebar}>
+            <div ref={sidebarRef}>
+                <SidebarTop sidebar={apps.sidebar} />
+                <SidebarBody />
+            </div>
         </div>
+
     );
 }

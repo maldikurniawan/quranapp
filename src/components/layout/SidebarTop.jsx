@@ -2,7 +2,8 @@ import { AiOutlineClose } from "react-icons/ai"
 
 export default function SidebarTop(props) {
     const closeMenu = () => {
-        props.sidebar.current.classList.remove('toggle-search')
+        props.sidebar.current.classList.remove('toggle-search');
+        document.body.style.overflow = '';
     }
 
     return (

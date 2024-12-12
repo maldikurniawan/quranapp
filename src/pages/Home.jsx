@@ -76,7 +76,7 @@ export default function Home() {
                         position: 'fixed',
                         bottom: '20px',
                         right: '20px',
-                        color: '#672CBC',
+                        color: '#16a34a',
                         border: 'none',
                         borderRadius: '5px',
                         cursor: 'pointer'

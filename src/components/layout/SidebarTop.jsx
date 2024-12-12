@@ -8,7 +8,7 @@ export default function SidebarTop(props) {
     return (
         <div className="sidebar-top">
             <h3 className="font-bold text-xl">Menu</h3>
-            <AiOutlineClose onClick={closeMenu} />
+            <AiOutlineClose onClick={closeMenu} className="cursor-pointer hover:bg-white hover:text-green-600 rounded-full p-1 w-8 h-8" />
         </div>
     )
 }

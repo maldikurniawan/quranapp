@@ -1,8 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AppContext } from "@/context/AppContext";
 import SidebarBody from "./SidebarBody";
 import SidebarTop from "./SidebarTop";
-import { useOnClickOutside } from "..//hooks/useOnClickOutside"; // Import the hook
+import { useOnClickOutside } from "@/hooks/useOnClickOutside"; // Import the hook
 
 export default function Sidebar() {
     const apps = useContext(AppContext);

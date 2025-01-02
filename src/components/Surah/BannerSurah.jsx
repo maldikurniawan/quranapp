@@ -5,8 +5,8 @@ export default function BannerSurah(props) {
             <h4 className="surah-arti">{props.surah.arti}</h4>
             <span className="diver"></span>
             <p className="surah-ayat-locate">{props.surah.tempat_turun} - {props.surah.jumlah_ayat} Ayat</p>
-            <img src="../bismillah.svg" alt="Bismillah" className="mx-auto" />
-            <img src="../quran.svg" alt="Quran" className="quran-surah" />
+            <img src="/bismillah.svg" alt="Bismillah" className="mx-auto" />
+            <img src="/quran.svg" alt="Quran" className="quran-surah" />
         </div>
     )
 }

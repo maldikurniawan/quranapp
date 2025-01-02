@@ -1,4 +1,11 @@
-import { AiOutlineBug, AiOutlineCoffee, AiOutlineFolderOpen, AiOutlineGithub, AiOutlineInstagram, AiOutlineWhatsApp } from "react-icons/ai"
+import {
+    AiOutlineBug,
+    AiOutlineCoffee,
+    AiOutlineFolderOpen,
+    AiOutlineGithub,
+    AiOutlineInstagram,
+    AiOutlineWhatsApp,
+} from "react-icons/ai"
 import { FaRegUserCircle } from "react-icons/fa"
 
 export default function SidebarBody() {

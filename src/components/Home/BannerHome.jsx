@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { AppContext } from "@/context/AppContext"
 
-export default function BannerHome() {
+const BannerHome = () => {
     const apps = useContext(AppContext)
 
     return (
@@ -28,3 +28,5 @@ export default function BannerHome() {
         </div>
     )
 }
+
+export default BannerHome

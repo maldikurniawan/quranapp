@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AppContext } from "@/context/AppContext"
 
-export default function HeaderHome() {
+const HeaderHome = () => {
     const apps = useContext(AppContext)
 
     const openSeachBar = () => {
@@ -28,3 +28,5 @@ export default function HeaderHome() {
         </div>
     )
 }
+
+export default HeaderHome

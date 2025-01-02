@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import {
     Sidebar,
     HeaderHome,
+    BannerHome,
     Loading,
     ListSurahHome,
     InputSearchHome
 } from '@/components';
-import BannerHome from "../components/home/BannerHome"
 import { AppContext } from '@/context/AppContext';
 import { FaArrowCircleUp } from 'react-icons/fa';
 

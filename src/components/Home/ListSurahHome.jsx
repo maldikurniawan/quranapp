@@ -7,7 +7,7 @@ export default function ListSurahHome() {
     const apps = useContext(AppContext)
 
     const detailSurah = (no_surah) => {
-        navigate(`/quranapp/surah/${no_surah}`)
+        navigate(`/surah/${no_surah}`)
     }
 
     return (

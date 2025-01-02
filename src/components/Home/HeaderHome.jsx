@@ -20,7 +20,7 @@ export default function HeaderHome() {
                 <img src="./menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">
-                <Link to="/quranapp/">Quran App</Link>
+                <Link to="/">Quran App</Link>
             </div>
             <span onClick={openSeachBar}>
                 <img src="./search-line.svg" alt="Search" />

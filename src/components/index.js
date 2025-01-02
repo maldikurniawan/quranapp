@@ -1,7 +1,7 @@
-import Loading from "./layout/Loading";
-import Sidebar from "./layout/Sidebar";
-import SidebarBody from "./layout/SidebarBody";
-import SidebarTop from "./layout/SidebarTop";
+import Loading from "./Loading";
+import Sidebar from "./Sidebar";
+import SidebarBody from "./SidebarBody";
+import SidebarTop from "./SidebarTop";
 
 export {
     Loading,

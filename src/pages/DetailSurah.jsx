@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import 'react-h5-audio-player/lib/styles.css'
 import { Loading } from "@/components";
-import HeaderSurah from '../surah/HeaderSurah';
-import BannerSurah from '../surah/BannerSurah';
-import ListAyat from '../surah/ListAyat';
-import MurotalSurah from '../surah/MurotalSurah';
+import {
+    HeaderSurah,
+    BannerSurah,
+    ListAyat,
+    MurotalSurah,
+} from '@/surah';
 export default function DetailSurah() {
     const params = useParams()
-
     const [surah, setSurah] = useState([])
     const [loading, setLoading] = useState(true)
 

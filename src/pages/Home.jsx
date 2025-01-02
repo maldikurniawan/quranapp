@@ -3,10 +3,12 @@ import {
     Sidebar,
     Loading,
 } from '@/components';
-import BannerHome from '../home/BannerHome';
-import HeaderHome from '../home/HeaderHome';
-import InputSearchHome from '../home/InputSearchHome';
-import ListSurahHome from '../home/ListSurahHome';
+import {
+    BannerHome,
+    HeaderHome,
+    InputSearchHome,
+    ListSurahHome,
+} from '@/home';
 import { AppContext } from '@/context/AppContext';
 import { FaArrowCircleUp } from 'react-icons/fa';
 

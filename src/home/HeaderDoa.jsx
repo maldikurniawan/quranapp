@@ -1,12 +1,11 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
 import { AppContext } from "@/context/AppContext"
 
-const HeaderHome = () => {
+const HeaderDoa = () => {
     const apps = useContext(AppContext)
 
     const openSeachBar = () => {
-        apps.searchInput.current.classList.toggle('toggle-search')
+        apps.searchDoa.current.classList.toggle('toggle-search')
     }
 
     const openMenu = () => {
@@ -20,7 +19,7 @@ const HeaderHome = () => {
                 <img src="/menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">
-                Quran App
+                Do'a Harian
             </div>
             <span onClick={openSeachBar} className="cursor-pointer">
                 <img src="/search-line.svg" alt="Search" />
@@ -29,4 +28,4 @@ const HeaderHome = () => {
     )
 }
 
-export default HeaderHome
+export default HeaderDoa

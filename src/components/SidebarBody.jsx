@@ -1,12 +1,13 @@
 import {
-    AiOutlineBug,
-    AiOutlineCoffee,
     AiOutlineFolderOpen,
     AiOutlineGithub,
     AiOutlineInstagram,
     AiOutlineWhatsApp,
 } from "react-icons/ai"
+import { LuBookOpenText, LuHandHelping } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa"
+import { IoMdTime } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function SidebarBody() {
     return (
@@ -14,16 +15,20 @@ export default function SidebarBody() {
             <div className="sidebar-body-menu">
                 <ul>
                     <li>
-                        <AiOutlineCoffee />
-                        <a href="/">Trakteer Coffe</a>
+                        <LuBookOpenText />
+                        <Link to="/">Al-Qur'an</Link>
                     </li>
                     <li>
-                        <AiOutlineBug />
-                        <a href="/"> Report Bug</a>
+                        <LuHandHelping />
+                        <Link to="/doa"> Do'a Harian</Link>
+                    </li>
+                    <li>
+                        <IoMdTime />
+                        <Link to="/jadwal">Jadwal Salat</Link>
                     </li>
                     <li>
                         <AiOutlineFolderOpen />
-                        <a href="/">This Repository</a>
+                        <a href="https://github.com/maldikurniawan/quranapp" target="_blank">This Repository</a>
                     </li>
                 </ul>
             </div>

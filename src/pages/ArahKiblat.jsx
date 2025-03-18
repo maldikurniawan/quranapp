@@ -97,7 +97,7 @@ const ArahKiblat = () => {
                 )}
 
                 {/* Kompas dengan Arrow dan Ka'bah */}
-                <div className="relative flex justify-center my-20 rounded-full">
+                <div className="relative flex justify-center my-10 rounded-full">
                     {/* Ka'bah di atas */}
                     <img src="kaaba.svg" className="absolute top-[-36px] z-10 w-[60px] h-[60px]" />
 

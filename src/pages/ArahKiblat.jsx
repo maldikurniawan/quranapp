@@ -67,7 +67,7 @@ const ArahKiblat = () => {
     // Hitung sudut yang harus ditempuh untuk menghadap kiblat
     const getRotationAngle = () => {
         if (deviceHeading !== null && qiblaDirection !== null) {
-            return qiblaDirection - deviceHeading;
+            return (qiblaDirection - deviceHeading + 180) % 360;
         }
         return 0;
     };
@@ -89,7 +89,7 @@ const ArahKiblat = () => {
                 {deviceHeading !== null ? (
                     <div className="pb-10">
                         <p className="pb-2">Arah Perangkat</p>
-                        <p className="font-semibold text-xl"> {deviceHeading.toFixed(2)}°</p>
+                        <p className="font-semibold text-xl">{((deviceHeading + 180) % 360).toFixed(2)}°</p>
                     </div>
                 ) : (
                     <p className="pb-4">Mendeteksi kompas...</p>
@@ -104,7 +104,7 @@ const ArahKiblat = () => {
                     <div
                         className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative"
                     >
-                        <img src="compas.png" alt="Compas" className="p-2 opacity-50"/>
+                        <img src="compas.png" alt="Compas" className="p-2 opacity-50" />
                         {/* Arrow (Panah) */}
                         <div
                             className="absolute"

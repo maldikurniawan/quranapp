@@ -50,48 +50,24 @@ const ArahKiblat = () => {
             console.error("Geolocation tidak didukung di browser ini.");
         }
 
-        // Minta izin sensor jika diperlukan (iOS/Safari)
-        const requestPermission = async () => {
-            if (typeof DeviceOrientationEvent.requestPermission === "function") {
-                try {
-                    const permission = await DeviceOrientationEvent.requestPermission();
-                    if (permission !== "granted") {
-                        console.warn("Akses sensor ditolak oleh pengguna");
-                        return;
-                    }
-                } catch (error) {
-                    console.error("Gagal meminta izin sensor:", error);
-                    return;
-                }
+        // Gunakan DeviceOrientation API untuk mendeteksi arah perangkat
+        const handleOrientation = (event) => {
+            if (event.alpha !== null) {
+                setDeviceHeading(event.alpha);
             }
-
-            // Gunakan DeviceOrientation API untuk mendeteksi arah perangkat
-            const handleOrientation = (event) => {
-                if (event.alpha !== null) {
-                    setDeviceHeading(event.alpha);
-                }
-            };
-
-            window.addEventListener("deviceorientation", handleOrientation);
-
-            return () => {
-                window.removeEventListener("deviceorientation", handleOrientation);
-            };
         };
 
-        requestPermission();
+        window.addEventListener("deviceorientation", handleOrientation);
+
+        return () => {
+            window.removeEventListener("deviceorientation", handleOrientation);
+        };
     }, []);
 
-    // Hitung sudut rotasi panah agar menghadap kiblat
+    // Hitung sudut yang harus ditempuh untuk menghadap kiblat
     const getRotationAngle = () => {
         if (deviceHeading !== null && qiblaDirection !== null) {
-            let angle = qiblaDirection - deviceHeading;
-
-            // Pastikan sudut selalu dalam rentang 0° - 360°
-            if (angle < 0) angle += 360;
-            if (angle > 360) angle -= 360;
-
-            return angle;
+            return qiblaDirection - deviceHeading;
         }
         return 0;
     };
@@ -122,11 +98,13 @@ const ArahKiblat = () => {
                 {/* Kompas dengan Arrow dan Ka'bah */}
                 <div className="relative flex justify-center my-10 rounded-full">
                     {/* Ka'bah di atas */}
-                    <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" alt="Ka'bah" />
+                    <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" />
 
                     {/* Lingkaran Kompas */}
-                    <div className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative">
-                        <img src="compas.png" alt="Kompas" className="p-2 opacity-50" />
+                    <div
+                        className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative"
+                    >
+                        <img src="compas.png" alt="Compas" className="p-2 opacity-50"/>
                         {/* Arrow (Panah) */}
                         <div
                             className="absolute"

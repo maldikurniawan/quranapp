@@ -3,7 +3,7 @@ import { AppContext } from "@/context/AppContext";
 import { HeaderKiblat } from "@/home";
 import { Sidebar } from "@/components";
 import { LiaLocationArrowSolid } from "react-icons/lia";
-import { FaKaaba } from "react-icons/fa"; // Icon Ka'bah
+import { FaKaaba } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
 const ArahKiblat = () => {
@@ -66,7 +66,7 @@ const ArahKiblat = () => {
         <AppContext.Provider value={data}>
             <HeaderKiblat />
             <Sidebar />
-            <div className="text-center">
+            <div className="text-center bg-[#16A34A] rounded-xl">
                 <h2 className="text-lg font-bold">Arah Kiblat</h2>
                 {location ? (
                     <p>Lokasi Anda: {location.lat}, {location.lon}</p>
@@ -85,13 +85,13 @@ const ArahKiblat = () => {
                 )}
 
                 {/* Kompas dengan Arrow dan Ka'bah */}
-                <div className="relative flex justify-center mt-6">
+                <div className="relative flex justify-center mt-10 rounded-full">
                     {/* Ka'bah di atas */}
-                    <FaKaaba className="absolute top-[-20px] z-10 text-gray-800 text-4xl" />
+                    <img src="kaaba.svg" className="absolute top-[-36px] z-10 w-[60px] h-[60px]" />
 
                     {/* Lingkaran Kompas */}
                     <div
-                        className="w-32 h-32 border-4 border-gray-500 rounded-full flex items-center justify-center relative"
+                        className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative"
                     >
                         {/* Arrow (Panah) */}
                         <div
@@ -101,13 +101,15 @@ const ArahKiblat = () => {
                                 transition: "transform 0.1s linear",
                             }}
                         >
-                            <BsThreeDotsVertical className="h-[50px] w-[50px] text-red-500"/>
-                            <LiaLocationArrowSolid className="h-[50px] w-[50px] text-red-500" />
+                            <div className="relative flex justify-center">
+                                <BsThreeDotsVertical className="absolute top-[-30px] w-[40px] h-[40px] text-red-500" />
+                                <LiaLocationArrowSolid className="h-[120px] w-[120px] text-red-500" />
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <p className="mt-2 text-sm">Putar perangkat hingga arrow menghadap kiblat</p>
+                <p className="mt-2">Arahkan Panah menghadap Kiblat</p>
             </div>
         </AppContext.Provider>
     );

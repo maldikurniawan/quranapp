@@ -241,7 +241,6 @@ export const OptionCities = [
     { value: "nabire", label: "Nabire" },
     { value: "naganraya", label: "Nagan Raya" },
     { value: "natal", label: "Natal" },
-    { value: "naganraya", label: "Nagan Raya" },
     { value: "nias", label: "Nias" },
     { value: "ngawi", label: "Ngawi" },
     { value: "nganjuk", label: "Nganjuk" },
@@ -367,7 +366,6 @@ export const OptionCities = [
     { value: "wakil", label: "Wakil" },
     { value: "walikota", label: "Walikota" },
     { value: "waingapu", label: "Waingapu" },
-    { value: "wajo", label: "Wajo" },
     { value: "waropen", label: "Waropen" },
     { value: "watampone", label: "Watampone" },
     { value: "waykanan", label: "Way Kanan" },
@@ -376,4 +374,7 @@ export const OptionCities = [
     { value: "yogyakarta", label: "Yogyakarta" },
     { value: "yuli", label: "Yuli" },
     { value: "yuliani", label: "Yuliani" },
-];
+].map(city => ({
+    ...city,
+    value: city.label
+}));

@@ -13,7 +13,6 @@ const ArahKiblat = () => {
     const [address, setAddress] = useState(null);
     const [qiblaDirection, setQiblaDirection] = useState(null);
     const [deviceHeading, setDeviceHeading] = useState(null);
-    const [declination, setDeclination] = useState(0); // Koreksi utara sejati
 
     useEffect(() => {
         if ("geolocation" in navigator) {
@@ -23,7 +22,7 @@ const ArahKiblat = () => {
                     const lon = position.coords.longitude;
                     setLocation({ lat, lon });
 
-                    // Panggil API Aladhan untuk mendapatkan arah kiblat
+                    // Ambil arah kiblat dari API Aladhan (tidak butuh API key)
                     try {
                         const qiblaResponse = await fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`);
                         const qiblaData = await qiblaResponse.json();
@@ -32,7 +31,7 @@ const ArahKiblat = () => {
                         console.error("Error mengambil arah kiblat:", error);
                     }
 
-                    // Panggil Nominatim API untuk mendapatkan alamat
+                    // Ambil alamat dari OpenStreetMap (tanpa API key)
                     try {
                         const nominatimResponse = await fetch(
                             `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
@@ -41,17 +40,6 @@ const ArahKiblat = () => {
                         setAddress(nominatimData.display_name);
                     } catch (error) {
                         console.error("Error mengambil alamat:", error);
-                    }
-
-                    // Ambil declination (koreksi utara sejati)
-                    try {
-                        const declinationResponse = await fetch(
-                            `https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination?lat1=${lat}&lon1=${lon}&resultFormat=json`
-                        );
-                        const declinationData = await declinationResponse.json();
-                        setDeclination(declinationData.result[0].declination);
-                    } catch (error) {
-                        console.error("Error mengambil declination:", error);
                     }
                 },
                 (error) => {
@@ -62,36 +50,34 @@ const ArahKiblat = () => {
             console.error("Geolocation tidak didukung di browser ini.");
         }
 
-        // Minta izin sensor di Chrome
-        if (typeof DeviceOrientationEvent.requestPermission === "function") {
-            DeviceOrientationEvent.requestPermission()
-                .then((permissionState) => {
-                    if (permissionState === "granted") {
-                        window.addEventListener("deviceorientation", handleOrientation);
-                    }
-                })
-                .catch(console.error);
-        } else {
-            window.addEventListener("deviceorientation", handleOrientation);
-        }
+        // Event listener untuk menangkap arah perangkat (tanpa API key)
+        const handleOrientation = (event) => {
+            let heading = null;
+
+            if (event.absolute && event.alpha !== null) {
+                heading = event.alpha; // Arah utara sejati
+            } else if (event.webkitCompassHeading !== undefined) {
+                heading = event.webkitCompassHeading; // Safari iOS
+            }
+
+            if (heading !== null) {
+                setDeviceHeading(heading);
+            }
+        };
+
+        window.addEventListener("deviceorientationabsolute", handleOrientation);
+        window.addEventListener("deviceorientation", handleOrientation);
 
         return () => {
+            window.removeEventListener("deviceorientationabsolute", handleOrientation);
             window.removeEventListener("deviceorientation", handleOrientation);
         };
     }, []);
 
-    // Handler untuk mendapatkan arah perangkat
-    const handleOrientation = (event) => {
-        const heading = event.webkitCompassHeading ?? event.alpha; // Gunakan webkitCompassHeading untuk iOS
-        if (heading !== null) {
-            setDeviceHeading(heading);
-        }
-    };
-
-    // Hitung sudut rotasi untuk menghadap kiblat dengan koreksi utara sejati
+    // Hitung rotasi kompas untuk menghadap kiblat
     const getRotationAngle = () => {
         if (deviceHeading !== null && qiblaDirection !== null) {
-            return qiblaDirection - (deviceHeading + declination);
+            return qiblaDirection - deviceHeading;
         }
         return 0;
     };
@@ -122,7 +108,7 @@ const ArahKiblat = () => {
                 {/* Kompas dengan Arrow dan Ka'bah */}
                 <div className="relative flex justify-center my-10 rounded-full">
                     {/* Ka'bah di atas */}
-                    <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" alt="Ka'bah" />
+                    <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" alt="Kaaba" />
 
                     {/* Lingkaran Kompas */}
                     <div

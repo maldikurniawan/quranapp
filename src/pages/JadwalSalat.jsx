@@ -8,7 +8,7 @@ import moment from "moment";
 import "moment/locale/id";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
-const VITE_API_TIME = import.meta.env.VITE_API_TIME;
+const API_TIME = "https://api.aladhan.com/v1/timingsByAddress?address=";
 
 const JadwalSalat = () => {
     const sidebar = useRef("");
@@ -25,7 +25,7 @@ const JadwalSalat = () => {
         const fetchPrayerTimes = async () => {
             try {
                 const formattedCity = selectedCity.value.replace(/\s+/g, "%20"); // Mengganti spasi dengan %20
-                const response = await fetch(`${VITE_API_TIME}${formattedCity}`);
+                const response = await fetch(`${API_TIME}${formattedCity}`);
                 const result = await response.json();
                 if (result.code === 200) {
                     setPrayerTimes(result.data.timings);

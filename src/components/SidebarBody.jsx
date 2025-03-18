@@ -14,19 +14,19 @@ export default function SidebarBody() {
         <div className="sidebar-body">
             <div className="sidebar-body-menu">
                 <ul>
-                    <li>
+                    <li className="border-b-2">
                         <LuBookOpenText />
                         <Link to="/">Al-Qur'an</Link>
                     </li>
-                    <li>
+                    <li className="border-b-2">
                         <LuHandHelping />
                         <Link to="/doa"> Do'a Harian</Link>
                     </li>
-                    <li>
+                    <li className="border-b-2">
                         <IoMdTime />
                         <Link to="/jadwal">Jadwal Salat</Link>
                     </li>
-                    <li>
+                    <li className="border-b-2">
                         <AiOutlineFolderOpen />
                         <a href="https://github.com/maldikurniawan/quranapp" target="_blank">This Repository</a>
                     </li>

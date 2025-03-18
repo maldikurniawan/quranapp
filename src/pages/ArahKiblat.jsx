@@ -85,14 +85,16 @@ const ArahKiblat = () => {
 
                 {/* Kompas dengan CSS Rotate */}
                 <div className="relative flex justify-center mt-6">
-                    <div
-                        className="w-32 h-32 border-4 border-gray-500 rounded-full flex items-center justify-center relative"
-                        style={{ transform: `rotate(${getRotationAngle()}deg)` }}
-                    >
-                        <FaLongArrowAltUp className="h-full" />
+                    <div className="compass">
+                        <div className="arrow" />
+                        <div
+                            className="compass-circle"
+                            style={{ transform: `rotate(${getRotationAngle()}deg)` }}
+                        />
+                        <div className="my-point" />
                     </div>
                 </div>
-                <p className="mt-2">Putar perangkat hingga ikon 🕌 menghadap ke atas</p>
+                <p className="mt-2">Putar perangkat hingga arrow menghadap ke atas</p>
             </div>
         </AppContext.Provider>
     );

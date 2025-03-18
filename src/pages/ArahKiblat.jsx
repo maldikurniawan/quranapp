@@ -53,7 +53,7 @@ const ArahKiblat = () => {
         // Gunakan DeviceOrientation API untuk mendeteksi arah perangkat
         const handleOrientation = (event) => {
             if (event.alpha !== null) {
-                setDeviceHeading(event.alpha);
+                setDeviceHeading((360 - event.alpha) % 360);
             }
         };
 

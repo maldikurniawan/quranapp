@@ -11,6 +11,7 @@ const ArahKiblat = () => {
     const data = { sidebar };
 
     const [location, setLocation] = useState(null);
+    const [address, setAddress] = useState(null);
     const [qiblaDirection, setQiblaDirection] = useState(null);
     const [deviceHeading, setDeviceHeading] = useState(null);
 
@@ -20,16 +21,26 @@ const ArahKiblat = () => {
                 async (position) => {
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
-
                     setLocation({ lat, lon });
 
                     // Panggil API Aladhan untuk mendapatkan arah kiblat
                     try {
-                        const response = await fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`);
-                        const data = await response.json();
-                        setQiblaDirection(data.data.direction);
+                        const qiblaResponse = await fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`);
+                        const qiblaData = await qiblaResponse.json();
+                        setQiblaDirection(qiblaData.data.direction);
                     } catch (error) {
                         console.error("Error mengambil arah kiblat:", error);
+                    }
+
+                    // Panggil Nominatim API untuk mendapatkan alamat
+                    try {
+                        const nominatimResponse = await fetch(
+                            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+                        );
+                        const nominatimData = await nominatimResponse.json();
+                        setAddress(nominatimData.display_name);
+                    } catch (error) {
+                        console.error("Error mengambil alamat:", error);
                     }
                 },
                 (error) => {
@@ -66,26 +77,27 @@ const ArahKiblat = () => {
         <AppContext.Provider value={data}>
             <HeaderKiblat />
             <Sidebar />
-            <div className="text-center bg-[#16A34A] rounded-xl">
-                <h2 className="text-lg font-bold">Arah Kiblat</h2>
-                {location ? (
-                    <p>Lokasi Anda: {location.lat}, {location.lon}</p>
-                ) : (
-                    <p>Mendapatkan lokasi...</p>
-                )}
+            <div className="text-center text-white bg-[#16A34A] rounded-xl p-4">
+                {address && <p className="font-medium">📍 {address}</p>}
                 {qiblaDirection !== null ? (
-                    <p>Arah Kiblat: {qiblaDirection.toFixed(2)}° dari utara</p>
+                    <div className="py-2">
+                        <p className="pb-2">Derajat Sudut Kiblat dari Utara</p>
+                        <p className="font-semibold text-xl">{qiblaDirection.toFixed(2)}°</p>
+                    </div>
                 ) : (
                     location && <p>Menghitung arah kiblat...</p>
                 )}
                 {deviceHeading !== null ? (
-                    <p>Arah Hadap Perangkat: {deviceHeading.toFixed(2)}°</p>
+                    <div className="pb-10">
+                        <p className="pb-2">Arah Perangkat</p>
+                        <p className="font-semibold text-xl"> {deviceHeading.toFixed(2)}°</p>
+                    </div>
                 ) : (
                     <p>Mendeteksi kompas...</p>
                 )}
 
                 {/* Kompas dengan Arrow dan Ka'bah */}
-                <div className="relative flex justify-center mt-10 rounded-full">
+                <div className="relative flex justify-center my-20 rounded-full">
                     {/* Ka'bah di atas */}
                     <img src="kaaba.svg" className="absolute top-[-36px] z-10 w-[60px] h-[60px]" />
 
@@ -108,8 +120,7 @@ const ArahKiblat = () => {
                         </div>
                     </div>
                 </div>
-
-                <p className="mt-2">Arahkan Panah menghadap Kiblat</p>
+                <p className="border rounded-xl bg-white text-[#16A34A] font-medium">Arahkan Panah menghadap Kiblat</p>
             </div>
         </AppContext.Provider>
     );

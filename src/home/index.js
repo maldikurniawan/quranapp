@@ -1,4 +1,5 @@
 import BannerHome from "./BannerHome";
+import BannerJadwal from "./BannerJadwal";
 import HeaderHome from "./HeaderHome";
 import HeaderDoa from "./HeaderDoa";
 import HeaderSalat from "./HeaderSalat";
@@ -8,6 +9,7 @@ import SearchDoa from "./SearchDoa";
 
 export {
     BannerHome,
+    BannerJadwal,
     HeaderHome,
     HeaderDoa,
     HeaderSalat,

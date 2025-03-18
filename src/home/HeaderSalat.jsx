@@ -1,7 +1,5 @@
 import { useContext } from "react"
 import { AppContext } from "@/context/AppContext"
-import moment from "moment";
-import "moment/locale/id";
 
 const HeaderSalat = () => {
     const apps = useContext(AppContext)
@@ -17,7 +15,7 @@ const HeaderSalat = () => {
                 <img src="/menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">
-                {moment().locale("id").format("ddd, D MMM YYYY")}
+                Jadwal Salat
             </div>
         </div>
     )

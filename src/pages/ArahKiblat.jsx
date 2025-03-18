@@ -13,6 +13,7 @@ const ArahKiblat = () => {
     const [address, setAddress] = useState(null);
     const [qiblaDirection, setQiblaDirection] = useState(null);
     const [deviceHeading, setDeviceHeading] = useState(null);
+    const [declination, setDeclination] = useState(0); // Koreksi utara sejati
 
     useEffect(() => {
         if ("geolocation" in navigator) {
@@ -41,6 +42,17 @@ const ArahKiblat = () => {
                     } catch (error) {
                         console.error("Error mengambil alamat:", error);
                     }
+
+                    // Ambil declination (koreksi utara sejati)
+                    try {
+                        const declinationResponse = await fetch(
+                            `https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination?lat1=${lat}&lon1=${lon}&resultFormat=json`
+                        );
+                        const declinationData = await declinationResponse.json();
+                        setDeclination(declinationData.result[0].declination);
+                    } catch (error) {
+                        console.error("Error mengambil declination:", error);
+                    }
                 },
                 (error) => {
                     console.error("Error mendapatkan lokasi:", error.message);
@@ -50,48 +62,36 @@ const ArahKiblat = () => {
             console.error("Geolocation tidak didukung di browser ini.");
         }
 
-        // Minta izin sensor jika diperlukan (iOS/Safari)
-        const requestPermission = async () => {
-            if (typeof DeviceOrientationEvent.requestPermission === "function") {
-                try {
-                    const permission = await DeviceOrientationEvent.requestPermission();
-                    if (permission !== "granted") {
-                        console.warn("Akses sensor ditolak oleh pengguna");
-                        return;
+        // Minta izin sensor di Chrome
+        if (typeof DeviceOrientationEvent.requestPermission === "function") {
+            DeviceOrientationEvent.requestPermission()
+                .then((permissionState) => {
+                    if (permissionState === "granted") {
+                        window.addEventListener("deviceorientation", handleOrientation);
                     }
-                } catch (error) {
-                    console.error("Gagal meminta izin sensor:", error);
-                    return;
-                }
-            }
-
-            // Gunakan DeviceOrientation API untuk mendeteksi arah perangkat
-            const handleOrientation = (event) => {
-                if (event.alpha !== null) {
-                    setDeviceHeading(event.alpha);
-                }
-            };
-
+                })
+                .catch(console.error);
+        } else {
             window.addEventListener("deviceorientation", handleOrientation);
+        }
 
-            return () => {
-                window.removeEventListener("deviceorientation", handleOrientation);
-            };
+        return () => {
+            window.removeEventListener("deviceorientation", handleOrientation);
         };
-
-        requestPermission();
     }, []);
 
-    // Hitung sudut rotasi panah agar menghadap kiblat
+    // Handler untuk mendapatkan arah perangkat
+    const handleOrientation = (event) => {
+        const heading = event.webkitCompassHeading ?? event.alpha; // Gunakan webkitCompassHeading untuk iOS
+        if (heading !== null) {
+            setDeviceHeading(heading);
+        }
+    };
+
+    // Hitung sudut rotasi untuk menghadap kiblat dengan koreksi utara sejati
     const getRotationAngle = () => {
         if (deviceHeading !== null && qiblaDirection !== null) {
-            let angle = qiblaDirection - deviceHeading;
-
-            // Pastikan sudut selalu dalam rentang 0° - 360°
-            if (angle < 0) angle += 360;
-            if (angle > 360) angle -= 360;
-
-            return angle;
+            return qiblaDirection - (deviceHeading + declination);
         }
         return 0;
     };
@@ -125,7 +125,9 @@ const ArahKiblat = () => {
                     <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" alt="Ka'bah" />
 
                     {/* Lingkaran Kompas */}
-                    <div className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative">
+                    <div
+                        className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative"
+                    >
                         <img src="compas.png" alt="Kompas" className="p-2 opacity-50" />
                         {/* Arrow (Panah) */}
                         <div

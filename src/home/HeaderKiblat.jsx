@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { AppContext } from "@/context/AppContext"
 
-const HeaderSalat = () => {
+const HeaderKiblat = () => {
     const apps = useContext(AppContext)
 
     const openMenu = () => {
@@ -15,10 +15,10 @@ const HeaderSalat = () => {
                 <img src="/menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">
-                Jadwal Salat
+                Arah Kiblat
             </div>
         </div>
     )
 }
 
-export default HeaderSalat
+export default HeaderKiblat

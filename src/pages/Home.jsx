@@ -73,7 +73,7 @@ export default function Home() {
             {showScrollToTop && (
                 <button
                     onClick={scrollToTop}
-                    className='opacity-70'
+                    className='opacity-90'
                     style={{
                         position: 'fixed',
                         bottom: '20px',

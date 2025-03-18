@@ -15,7 +15,7 @@ const HeaderDoa = () => {
 
     return (
         <div className="topBar">
-            <span onClick={openMenu} className="hidden max-[460px]:block">
+            <span onClick={openMenu} className="hidden max-[460px]:block cursor-pointer">
                 <img src="/menu-2-line.svg" alt="" />
             </span>
             <div className="title-home">

@@ -8,6 +8,7 @@ import { LuBookOpenText, LuHandHelping } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa"
 import { IoMdTime } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { MdOutlineMosque } from "react-icons/md";
 
 export default function SidebarBody() {
     return (
@@ -25,6 +26,10 @@ export default function SidebarBody() {
                     <li className="border-b-2">
                         <IoMdTime />
                         <Link to="/jadwal">Jadwal Salat</Link>
+                    </li>
+                    <li className="border-b-2">
+                        <MdOutlineMosque />
+                        <Link to="/kiblat">Arah Kiblat</Link>
                     </li>
                     <li className="border-b-2">
                         <AiOutlineFolderOpen />

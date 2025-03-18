@@ -3,7 +3,7 @@ import { AppContext } from "@/context/AppContext";
 import { HeaderKiblat } from "@/home";
 import { Sidebar } from "@/components";
 import { LiaLocationArrowSolid } from "react-icons/lia";
-import { FaKaaba } from "react-icons/fa";
+import { FaKaaba, FaLocationArrow } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
 const ArahKiblat = () => {
@@ -93,18 +93,19 @@ const ArahKiblat = () => {
                         <p className="font-semibold text-xl"> {deviceHeading.toFixed(2)}°</p>
                     </div>
                 ) : (
-                    <p>Mendeteksi kompas...</p>
+                    <p className="pb-4">Mendeteksi kompas...</p>
                 )}
 
                 {/* Kompas dengan Arrow dan Ka'bah */}
                 <div className="relative flex justify-center my-10 rounded-full">
                     {/* Ka'bah di atas */}
-                    <img src="kaaba.svg" className="absolute top-[-36px] z-10 w-[60px] h-[60px]" />
+                    <img src="kaaba.svg" className="absolute top-[-40px] z-10 w-[50px] h-[50px]" />
 
                     {/* Lingkaran Kompas */}
                     <div
                         className="w-60 h-60 border-4 border-black bg-white rounded-full flex items-center justify-center relative"
                     >
+                        <img src="compas.png" alt="Compas" className="p-2 opacity-50"/>
                         {/* Arrow (Panah) */}
                         <div
                             className="absolute"
@@ -114,8 +115,8 @@ const ArahKiblat = () => {
                             }}
                         >
                             <div className="relative flex justify-center">
-                                <BsThreeDotsVertical className="absolute top-[-30px] w-[40px] h-[40px] text-red-500" />
-                                <LiaLocationArrowSolid className="h-[120px] w-[120px] text-red-500" />
+                                <BsThreeDotsVertical className="absolute top-[-60px] w-[40px] h-[40px] text-red-600" />
+                                <FaLocationArrow className="h-[80px] w-[80px] text-red-600 -rotate-45" />
                             </div>
                         </div>
                     </div>

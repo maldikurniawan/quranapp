@@ -41,7 +41,7 @@ export default function Sidebar() {
     }, []);
 
     return (
-        <div className="sidebar bg-[#16a34a] flex flex-col h-full" ref={apps.sidebar}>
+        <div className="sidebar bg-[#16a34a] border-r-4 border-black flex flex-col h-full" ref={apps.sidebar}>
             <div ref={sidebarRef} className="flex flex-col h-full">
                 <SidebarTop sidebar={apps.sidebar} />
                 <div className="flex-grow">

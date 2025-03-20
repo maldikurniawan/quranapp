@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, DetailSurah, DoaHarian, JadwalSalat, ArahKiblat } from '@/pages';
+import { Home, DetailSurah, DoaHarian, JadwalSalat, ArahKiblat, Husna } from '@/pages';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/surah/:nomor" element={<DetailSurah />} />
         <Route path="/doa" element={<DoaHarian />} />
+        <Route path="/husna" element={<Husna />} />
         <Route path="/jadwal" element={<JadwalSalat />} />
         <Route path="/kiblat" element={<ArahKiblat />} />
       </Routes>

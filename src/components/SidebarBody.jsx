@@ -5,7 +5,7 @@ import {
     AiOutlineWhatsApp,
 } from "react-icons/ai"
 import { LuBookOpenText, LuHandHelping } from "react-icons/lu";
-import { FaRegUserCircle } from "react-icons/fa"
+import { FaRegSun, FaRegUserCircle } from "react-icons/fa"
 import { IoMdTime } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { MdOutlineMosque } from "react-icons/md";
@@ -21,7 +21,11 @@ export default function SidebarBody() {
                     </li>
                     <li className="border-b-2">
                         <LuHandHelping />
-                        <Link to="/doa"> Do'a Harian</Link>
+                        <Link to="/doa">Do'a Harian</Link>
+                    </li>
+                    <li className="border-b-2">
+                        <FaRegSun />
+                        <Link to="/husna">Asmaul Husna</Link>
                     </li>
                     <li className="border-b-2">
                         <IoMdTime />
